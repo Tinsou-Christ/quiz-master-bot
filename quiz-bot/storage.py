@@ -28,6 +28,12 @@ def _save(data: Dict[str, Any]) -> None:
     os.replace(tmp, DATA_FILE)
 
 
+def load_all() -> Dict[str, Any]:
+    """Retourne tout l'etat (lecture seule)."""
+    with _LOCK:
+        return _load()
+
+
 def get_chat(chat_id: int) -> Dict[str, Any]:
     """Retourne (et cree si besoin) l'etat d'un chat."""
     with _LOCK:

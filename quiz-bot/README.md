@@ -1,24 +1,27 @@
 # Quiz Bot Telegram
 
-Bot Telegram pour organiser des concours de questions/reponses avec comptage de points **persistant**.
+Bot Telegram pour concours de questions/reponses avec comptage **persistant**.
 
-## Regles
-- La **1re** bonne reponse gagne **2 points**. Les autres : **0**.
-- Nombre de joueurs **illimite**.
-- Les scores sont sauvegardes sur disque et survivent aux redemarrages.
+## Flux
+- Le host pose la question dans le **groupe** avec `/ask ...`
+- Les joueurs envoient leur reponse **en PRIVE au bot** (DM)
+- Le bot transmet chaque reponse au host en PRIVE avec un bouton "🏆 Gagnant (+2)"
+- Le host clique sur la bonne reponse -> le bot annonce le gagnant dans le groupe (+2 pts)
+
+⚠️ Chaque joueur et le host doivent avoir demarre le bot en PRIVE une fois (bouton Start en DM).
 
 ## Commandes
-| Commande | Qui | Description |
-|---|---|---|
-| `/start` | tous | Aide |
-| `/startquiz` | tous | Affiche un bouton "Activer le quiz" |
-| `/sethost` (reponse au message) ou `/sethost @pseudo` | admin | Designe le poseur de questions |
-| `/join` | tous | Rejoindre en tant que joueur |
-| `/ask <question>` | host | Ouvre un round |
-| `/verdict <bonne reponse>` | host | Cloture, distribue les points |
-| `/leaderboard` | tous | Classement total |
-| `/reset` | host/admin | Remet les scores a zero |
-| `/stopquiz` | host/admin | Desactive le quiz |
+| Commande | Ou | Qui | Description |
+|---|---|---|---|
+| `/start` | DM ou groupe | tous | Aide |
+| `/startquiz` | groupe | tous | Bouton "Activer le quiz" |
+| `/sethost` (repondre au message) | groupe | admin | Designe le host |
+| `/join` | groupe | tous | Rejoindre en tant que joueur |
+| `/ask <question>` | groupe | host | Ouvre un round |
+| `/verdict` | groupe | host | Cloture le round sans gagnant |
+| `/leaderboard` | groupe | tous | Classement total |
+| `/reset` | groupe | host/admin | Remet les scores a zero |
+| `/stopquiz` | groupe | host/admin | Desactive le quiz |
 
 ## Lancer en local
 ```bash
