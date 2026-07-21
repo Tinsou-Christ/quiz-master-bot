@@ -29,8 +29,11 @@ BOT_TOKEN=xxxx python main.py
 ```
 
 ## Docker
+Le `Dockerfile` est a la racine du projet pour faciliter le deploiement sur Render.
+
 ```bash
-docker build -t quiz-bot ./quiz-bot
+# Depuis la racine du projet
+docker build -t quiz-bot .
 docker run -d --name quiz-bot \
   -e BOT_TOKEN=123:ABC \
   -v quizdata:/data \
@@ -41,7 +44,7 @@ docker run -d --name quiz-bot \
 Le volume `quizdata` (monte sur `/data`) garde les scores entre les redemarrages.
 
 ## Deploiement (Render / Railway / Fly.io)
-- Utilise le `Dockerfile` fourni.
+- Le `Dockerfile` est a la racine du projet.
 - Ajoute la variable d'env `BOT_TOKEN`.
 - Monte un volume persistant sur `/data` (sinon les scores seront perdus a chaque redeploy).
 - Le health check HTTP tourne sur le port `PORT` (defaut 8080).
