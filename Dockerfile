@@ -5,10 +5,10 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends gcc build-essential && \
     rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt ./
+COPY quiz-bot/requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . .
+COPY quiz-bot/ .
 
 # Dossier persistant pour les scores (monter un volume ici)
 VOLUME ["/data"]

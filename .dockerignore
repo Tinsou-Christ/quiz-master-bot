@@ -1,0 +1,26 @@
+# Web app
+.git
+node_modules
+src
+dist
+data
+__pycache__
+*.pyc
+.env
+.lovable
+.prettierignore
+.prettierrc
+AGENTS.md
+README.md
+bunfig.toml
+components.json
+eslint.config.js
+package.json
+tsconfig.json
+vite.config.ts
+
+# Bot runtime artifacts
+quiz-bot/data
+quiz-bot/__pycache__
+quiz-bot/*.pyc
+quiz-bot/.env
